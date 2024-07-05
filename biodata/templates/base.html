@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}{% endblock title %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <link rel="icon" href="{% static 'img/dev5.png' %}" type="image/png">
+
+  <!--  Font awesome -->
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <!-- <i class="bi bi-list mobile-nav-toggle d-lg-none"></i> -->
+  <i class="fa-solid fa-list mobile-nav-toggle d-lg-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{% url 'home'%}" class="nav-link scrollto {% block home_active %} {% endblock home_active %}"><i
+              class="fa-solid fa-house-user"></i> <span>Home</span></a></li>
+
+        <li><a href="{% url 'about'%}"
+            class="nav-link scrollto  {% block about_active %} {% endblock about_active %}"><i
+              class="fa-solid fa-address-card"></i> <span>About</span></a>
+        </li>
+        <li><a href="{% url 'resume'%}"
+            class="nav-link scrollto {% block resume_active %} {% endblock resume_active %}"><i
+              class="fa-solid fa-file"></i> <span>Resume</span></a></li>
+
+        <li><a href="{% url 'service'%}"
+            class="nav-link scrollto {% block service_active %} {% endblock service_active %}"><i
+              class="fa-solid fa-server"></i> <span>Services</span></a>
+        </li>
+        <li><a href="{% url 'contact'%}"
+            class="nav-link scrollto {% block contact_active %} {% endblock contact_active %}"><i
+              class="fa-regular fa-address-book"></i><span>Contact</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+  {% block content %}
+  {% endblock content %}
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Devendra Lodhi</h3>
+      <div class="social-links">
+        <a href="https://github.com/Devendra0230" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.facebook.com/Devendra2412?mibextid=ZbWKwL" target="_blank" class="facebook"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/er_devendralodhi230?igsh=bDBldWp2dmFiNWFr" target="_blank" class="instagram"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/devendra-lodhi-932703235" target="_blank" class="linkedin"><i
+            class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Devendra Lodhi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#">Devendra Lodhi</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="fa-solid fa-arrow-up"></i></a>
+  <!-- <i class="bi bi-arrow-up-short"></i> -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
