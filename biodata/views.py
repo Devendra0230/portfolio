@@ -1,19 +1,12 @@
+from django.conf import settings
+from django.core import mail
 from django.shortcuts import render
+
 from .forms import myform
 from .models import Test
+
+
 def home(request):
-    return render(request,'home.html')
-
-def about(request):
-    return render(request,'about.html')
-
-def resume(request):
-    return render(request,'resume.html')
-
-def service(request):
-    return render(request,'service.html')
-    
-def contact(request):
     if request.method=='POST':
         fm=myform(request.POST)
         if fm.is_valid():
@@ -23,6 +16,14 @@ def contact(request):
             msg=fm.cleaned_data['msg']
             con=Test(name=nm,email=em,sub=sub,msg=msg)
             con.save()
+            msg=f'''
+            Feedbcak From : {nm}
+            User Mail : {em}
+            Subject : {sub}
+
+                {msg}
+            '''
+        send_mail = mail.send_mail(sub,msg,settings.EMAIL_HOST_USER, ['devendralodhi192@gmail.com'],fail_silently = False)
     else :
         fm=myform()
-    return render(request,'contact.html',{'form':fm})
+    return render(request,'home.html',{'form':fm})
