@@ -1,29 +1,41 @@
 from django.conf import settings
 from django.core import mail
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .forms import myform
-from .models import Test
+from .models import ContactForm
 
 
 def home(request):
-    if request.method=='POST':
-        fm=myform(request.POST)
-        if fm.is_valid():
-            nm=fm.cleaned_data['name']
-            em=fm.cleaned_data['email']
-            sub=fm.cleaned_data['sub']
-            msg=fm.cleaned_data['msg']
-            con=Test(name=nm,email=em,sub=sub,msg=msg)
-            con.save()
-            msg=f'''
-            Feedbcak From : {nm}
-            User Mail : {em}
-            Subject : {sub}
+    fm = myform(request.POST)
+    return render(request, 'home.html', {'form': fm})
+    
 
-                {msg}
+def contact(request):
+    if request.method == 'POST':
+        fm = myform(request.POST)
+        if fm.is_valid():
+            fm.save()
+            nm = request.POST['name']
+            em = request.POST['email']
+            sub = request.POST['sub']
+            msg = request.POST['msg']
+            
+            message = f'''Feedback from: {nm}
+Subject: {sub}
+User contact: {em}
+
+User msg: {msg}
             '''
-        send_mail = mail.send_mail(sub,msg,settings.EMAIL_HOST_USER, ['devendralodhi192@gmail.com'],fail_silently = False)
-    else :
-        fm=myform()
-    return render(request,'home.html',{'form':fm})
+            to_email = 'devendralodhi192@gmail.com'
+            
+            try:
+                mail.send_mail('Feedback from Portfolio', message, settings.EMAIL_HOST_USER, [to_email], fail_silently=False)
+            except Exception as e:
+                print(f"Failed to send email: {e}")
+            return redirect('home')
+    else:
+        fm = myform()
+    return redirect(home)
+    
+    

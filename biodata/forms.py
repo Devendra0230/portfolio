@@ -1,6 +1,16 @@
 from django import forms
-class myform(forms.Form):
-    name=forms.CharField(widget=forms.TextInput(attrs={'name':'name','id':'name','placeholder':'your name','class':'form-control'}))
-    email=forms.EmailField(widget=forms.EmailInput(attrs={'name':'email','id':'email','placeholder':'your email','class':'form-control'}))
-    sub=forms.CharField(widget=forms.TextInput(attrs={'name':'subject','id':'subject','placeholder':'subject','class':'form-control'}))
-    msg=forms.CharField(widget=forms.Textarea(attrs={'name':'message','class':'form-control','placeholder':'Message'}))
+from django.core.validators import EmailValidator
+
+from .models import ContactForm
+
+
+class myform(forms.ModelForm):
+    class Meta:
+        model = ContactForm
+        fields = "__all__"
+        widgets = {
+            "name" : forms.TextInput(attrs={'name':'name','id':'name','placeholder':'Your Name','class':'form-control'}),
+            "email": forms.EmailInput(attrs={'name':'email','id':'email','placeholder':'Your Email','class':'form-control'}),
+            "sub" : forms.TextInput(attrs={'name':'subject','id':'subject','placeholder':'Subject','class':'form-control'}),
+            "msg": forms.Textarea(attrs={'name':'message','class':'form-control','placeholder':'Message'})
+        }

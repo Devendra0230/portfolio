@@ -78,18 +78,25 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Devendra Lodhi</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-      <div class="social-links">
-        <a href="https://github.com/Devendra0230" target="_blank" class="github"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.facebook.com/Devendra2412?mibextid=ZbWKwL" target="_blank" class="facebook"><i
-            class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/er_devendralodhi230?igsh=bDBldWp2dmFiNWFr" target="_blank"
-          class="instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/devendra-lodhi-932703235" target="_blank" class="linkedin"><i
-            class="fa-brands fa-linkedin"></i></a>
+      <div class="column1">
+        <h1>Devendra Lodhi</h1>
+        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer"></span></p>
+        <div class="social-links">
+          <a href="https://github.com/Devendra0230" target="_blank" class="github"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://www.facebook.com/Devendra2412?mibextid=ZbWKwL" target="_blank" class="facebook"><i
+              class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/er_devendralodhi230?igsh=bDBldWp2dmFiNWFr" target="_blank"
+            class="instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/devendra-lodhi-932703235" target="_blank" class="linkedin"><i
+              class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="column2">
+        <img src=" {% static 'img/dev4.png' %} " alt="">
       </div>
     </div>
+
   </section><!-- End Hero -->
 
   <main id="main">
@@ -100,13 +107,10 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>I'm Devendra Lodhi, a software engineer with a strong proficiency in Python and web development
-            technologies.Django framework for backend development, and frontend technologies including Bootstrap,
-            HTML, CSS, and JavaScript.I've developed and deployed several web applications using Django and
-            integrated them with responsive frontend designs I stay updated with the latest advancements in Python
-            and web development frameworks to deliver cutting-edge solutions.I enjoy collaborating with
-            multidisciplinary teams to brainstorm ideas and deliver high-quality software solutions. I am eager to
-            contribute to impactful projects and drive continuous improvement.</p>
+          <p>I'm Devendra Lodhi, a software engineer proficient in Python, Django, and frontend technologies like
+            Bootstrap, HTML, CSS, and JavaScript. always staying updated with the latest advancements. I enjoy
+            collaborating with teams to brainstorm and deliver high-quality software solutions. I am eager to contribute
+            to impactful projects and drive continuous improvement.</p>
         </div>
 
         <div class="row">
@@ -150,60 +154,6 @@
 
       </div>
     </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Awards</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
 
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="skills section-bg">
@@ -286,8 +236,11 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <img class="d" src="/static/img/d.png" alt="">
-            <h3 class="resume-title">Sumary</h3>
+            <div class="row round-img ">
+              <img class="img" src="{% static 'img/d.png' %}" alt="">
+            </div>
+            <div class="row">
+              <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
               <h4>Devendra Lodhi</h4>
               <p><em>Innovative and Web Designer with 3+ years of experience designing and developing
@@ -329,7 +282,10 @@
               </ul>
             </div>
             <a class="btn btn-primary text-light" href="{% static 'files/devendra_resume.pdf' %}" download
-              style="margin: 50px 150px;">Download CV</a>
+              style=" margin-left:20%; width: fit-content;">Download CV</a>
+              
+            </div>
+            
           </div>
           <div class="col-lg-6">
             <h3 class="resume-title">Professional Experience</h3>
@@ -732,7 +688,7 @@
             <form action="/Contact/" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  {{form.name}}
+                  {{ form.name }}
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   {{form.email}}
